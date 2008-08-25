@@ -1,0 +1,40 @@
+<% project = form %>
+<% fields_for 'project', project, :index => project.id do |f| %>
+<%= f.error_messages %>
+
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :client %><br />
+  <%= f.text_field :client %>
+</p>
+<p>
+  <%= f.label :description %><br />
+  <%= f.text_area :description %>
+</p>
+<% if project.article_image.nil? %>
+	<p>
+		<a id="add_an_image_link" onClick="$('#add_an_image_link').fadeOut('slow', 
+			function(){ 
+				$.get('<%= new_admin_attachment_path(:type => 'ArticleImage', :article_image => {:attachable_id => project.id, :attachable_type => project.class.name}) %>', 
+					function(data){
+						$('#new_project_list_<%= project.id %>').append(data)
+					}
+				)
+			})">Click to add an image.</a>
+	</p>
+	<div id="new_project_list_<%= project.id %>">
+	</div>
+<% else %>
+	<%= render :partial => 'admin/attachments/li', :object => project.article_image %>
+<% end %>
+<p>
+  <%= f.label :site_link %><br />
+  <%= f.text_field :site_link %>
+</p>
+<p>
+  <%= f.submit "Save" %>
+</p>
+<% end %>

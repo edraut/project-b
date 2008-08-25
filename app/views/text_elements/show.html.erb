@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @text_element.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @text_element.content %>
+</p>
+
+<p>
+  <b>Page:</b>
+  <%=h @text_element.page %>
+</p>
+
+
+<%= link_to 'Edit', edit_text_element_path(@text_element) %> |
+<%= link_to 'Back', text_elements_path %>

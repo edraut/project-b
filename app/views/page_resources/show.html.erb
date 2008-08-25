@@ -1,0 +1,18 @@
+<p>
+  <b>Resource type:</b>
+  <%=h @page_resource.resource_type %>
+</p>
+
+<p>
+  <b>Resource:</b>
+  <%=h @page_resource.resource_id %>
+</p>
+
+<p>
+  <b>Page:</b>
+  <%=h @page_resource.page %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_resource_path(@page_resource) %> |
+<%= link_to 'Back', page_resources_path %>

@@ -1,0 +1,24 @@
+<h1>Listing text_elements</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+    <th>Page</th>
+  </tr>
+
+<% for text_element in @text_elements %>
+  <tr>
+    <td><%=h text_element.name %></td>
+    <td><%=h text_element.content %></td>
+    <td><%=h text_element.page %></td>
+    <td><%= link_to 'Show', text_element %></td>
+    <td><%= link_to 'Edit', edit_text_element_path(text_element) %></td>
+    <td><%= link_to 'Destroy', text_element, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New text_element', new_text_element_path %>

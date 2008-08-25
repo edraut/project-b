@@ -1,0 +1,2 @@
+class TemplateImage < TemplateElement
+end

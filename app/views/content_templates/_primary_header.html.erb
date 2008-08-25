@@ -1,0 +1,13 @@
+<%= image_tag primary_header.image_elements.named('Banner Image').public_filename %>
+<% javascript_tag do %>
+	$(document).ready(function(){
+    $("#nav_tabs > ul").tabs({selected: 0});
+  });
+<% end %>
+<div id="nav_tabs">
+    <ul>
+			<li class="ui-tabs-nav-item"><div class="ui-tabs-nav-topspacer">&nbsp;</div><%= link_to '<span>Home</span>', home_path(:partial => true) %></li>
+			<li class="ui-tabs-nav-item"><div class="ui-tabs-nav-topspacer">&nbsp;</div><%= link_to '<span>About</span>', about_path(:partial => true) %></li>
+			<li class="ui-tabs-nav-item"><div class="ui-tabs-nav-topspacer">&nbsp;</div><%= link_to '<span>Projects</span>', projects_path(:partial => true) %></li>
+    </ul>
+</div>

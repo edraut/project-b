@@ -1,0 +1,2 @@
+<%= NavigationResource.find(:context => 'admin', :level => 'controller').collect{|navigation_resource| link_to navigation_resource.display_name, :class => controller.controller_name == navigation_resource.controller_name ? 'active_nav' : 'inactive_nav'}.join(' | ') %>
+<hr/>

@@ -1,0 +1,24 @@
+<h1>Listing template_elements</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Template</th>
+  </tr>
+
+<% for template_element in @template_elements %>
+  <tr>
+    <td><%=h template_element.name %></td>
+    <td><%=h template_element.type %></td>
+    <td><%=h template_element.template %></td>
+    <td><%= link_to 'Show', template_element %></td>
+    <td><%= link_to 'Edit', edit_template_element_path(template_element) %></td>
+    <td><%= link_to 'Destroy', template_element, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New template_element', new_template_element_path %>

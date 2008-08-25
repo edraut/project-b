@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @blog_entry.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @blog_entry.description %>
+</p>
+
+<p>
+  <b>Article image:</b>
+  <%=h @blog_entry.article_image %>
+</p>
+
+
+<%= link_to 'Edit', edit_blog_entry_path(@blog_entry) %> |
+<%= link_to 'Back', blog_entries_path %>

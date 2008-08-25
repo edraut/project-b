@@ -1,0 +1,6 @@
+<h1>Editing project</h1>
+
+<% form_for([:admin,@project], :html => {:multipart => true}) do |f| %>
+	<%= render :partial => 'form', :object => @project %>
+<% end %>
+

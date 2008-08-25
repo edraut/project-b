@@ -1,0 +1,6 @@
+<% page = instantiate_elements %>
+<div >
+	<% for element in page.content_template.template_elements %>
+		<%= render :partial => 'admin/' + element.element_class_name.underscore.pluralize + '/li', :object => page.get_element(element), :locals => {:template_element => element, :page => page} %>
+	<% end if page.content_template %>
+</div>

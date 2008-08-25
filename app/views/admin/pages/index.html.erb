@@ -1,0 +1,21 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Template</th>
+  </tr>
+
+<% for page in @pages %>
+  <tr id="page_<%= page.id.to_s %>">
+    <td><%=h page.name %></td>
+    <td><%=h page.content_template.name %></td>
+    <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
+    <td><a onClick="$.ajax({ type: 'DELETE', url: '<%= admin_page_path(page) %>', beforeSend: function(xhr) { return confirm('Are you sure you want to delete this Page?'); }, success: function(){$('#page_<%= page.id.to_s %>').hide('slow')}})">Delete</a></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

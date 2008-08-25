@@ -1,0 +1,2 @@
+class PageTemplate < ContentTemplate
+end

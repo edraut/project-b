@@ -1,0 +1,8 @@
+<div class="column span-24 first last text_right navigation">
+	<% current_navigation = NavigationResource.find(:controller_names => params[:controller]).first %>
+<%= NavigationResource.find(:context => 'admin', :level => 'controller').collect{|navigation_resource| link_to 'Manage ' + navigation_resource.display_name.pluralize, send('admin_' + navigation_resource.name.pluralize + '_path'), :class => navigation_resource.controller_names.include?(params[:controller])  ? 'active_nav' : 'inactive_nav'}.join(' | ') %>
+</div>
+<div class="column span-24 first last text_right navigation">
+<%= link_to 'New ' + current_navigation.display_name, send('new_' + params[:controller].sub(/admin\//,'admin_').singularize + '_path'), :class => params[:action] == 'new'  ? 'active_nav' : 'inactive_nav' %>
+</div>
+<hr/>

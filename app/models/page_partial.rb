@@ -1,0 +1,2 @@
+class PagePartial < Page
+end

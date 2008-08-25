@@ -1,0 +1,47 @@
+<% 	content_template = form %>
+<div class="column span-24 first last">
+<% fields_for content_template.class.name.underscore, content_template, :index => content_template.id do |f| %>
+  <%= f.error_messages %>
+
+  <br/>&nbsp;<br/>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+		<br/>
+    <%= f.label :path %><br />
+    <%= f.text_field :path %>
+		<br/>
+		<div id="body_template_path" <% if content_template.class.name == 'PartialTemplate' %>style="display: none;"<% end %> >
+	    <%= f.label :body_template_path %><br />
+	    <%= f.text_field :body_template_path %>
+			<br/>
+		</div>
+		<label for="content_template_type">Type</label><br/>
+		<%= select_tag content_template.class.name.underscore + '_type[' + content_template.id.to_s + ']', options_for_select(ContentTemplate.type_list_for_select,content_template.class.name), :onchange => "$('#body_template_path').toggle()" %>
+  <br/>&nbsp;<br/>
+		<b>Text Blocks</b><br/>
+	<%= render :partial => 'admin/template_elements/li', :collection => content_template.template_texts %>
+		<a onClick="$.get('<%= new_admin_template_element_path(:type => 'template_text', :parent_id => content_template.id) %>', function(data){
+	$('#new_template_text_list_<%= content_template.id %>').append(data)});">Click to create new text blocks.</a><br/>
+	<div id="new_template_text_list_<%= content_template.id %>">
+	</div>
+  <br/>&nbsp;<br/>
+		<b>Images</b><br/>
+	<%= render :partial => 'admin/template_elements/li', :collection => content_template.template_images %>
+		<a onClick="$.get('<%= new_admin_template_element_path(:type => 'template_image', :parent_id => content_template.id) %>', function(data){
+	$('#new_template_image_list_<%= content_template.id %>').append(data)});">Click to create new image blocks.</a><br/>
+	<div id="new_template_image_list_<%= content_template.id %>">
+	</div>
+  <br/>&nbsp;<br/>
+		<b>Featured Resources</b>
+	<%= render :partial => 'admin/template_elements/li', :collection => content_template.template_resources %>
+	<p>
+		<a onClick="$.get('<%= new_admin_template_element_path(:type => 'template_resource', :parent_id => content_template.id) %>', function(data){
+	$('#new_template_resource_list_<%= content_template.id %>').append(data)});">Click to create new featured resources.</a>
+	</p>
+	<div id="new_template_resource_list_<%= content_template.id %>">
+	</div>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>
+</div>

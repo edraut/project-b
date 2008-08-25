@@ -1,0 +1,14 @@
+.text_right {
+	text-align: right;
+}
+a.active_nav {
+	color: #444;
+}
+a, a.inactive_nav {
+	color: darkred;
+}
+
+div.navigation {
+	margin: 5px;
+}
+.ui-tabs-hide { display: none; }

@@ -1,0 +1,2 @@
+class TemplateResource < TemplateElement
+end

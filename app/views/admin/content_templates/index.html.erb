@@ -1,0 +1,21 @@
+<h1>Listing content_templates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Path</th>
+		<th>&nbsp;</th>
+		<th>&nbsp;</th>
+  </tr>
+
+<% for content_template in @content_templates %>
+  <tr id="content_template_<%= content_template.id.to_s %>">
+    <td><%=h content_template.name %></td>
+    <td><%=h content_template.path %></td>
+    <td><%= link_to 'Edit', edit_admin_content_template_path(content_template) %></td>
+    <td><a onClick="$.ajax({ type: 'DELETE', url: '<%= admin_content_template_path(content_template) %>', beforeSend: function(xhr) { return confirm('Are you sure you want to delete this Template?'); }, success: function(){$('#content_template_<%= content_template.id.to_s %>').hide('slow')}})">Delete</a></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

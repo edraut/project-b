@@ -1,0 +1,2 @@
+class PartialTemplate < ContentTemplate
+end

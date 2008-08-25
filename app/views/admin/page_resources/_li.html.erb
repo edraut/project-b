@@ -1,0 +1,6 @@
+<p>
+	<% fields_for 'page_resource[]', li, :index => li.id do |page_resource| %>
+		<b><%= li.name %></b><br/>
+		<%= page_resource.select :resource_id, li.resource_type.constantize.all.collect{|r| [r.name,r.id] } %>
+	<% end %>
+</p>

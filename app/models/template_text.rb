@@ -1,0 +1,2 @@
+class TemplateText < TemplateElement
+end

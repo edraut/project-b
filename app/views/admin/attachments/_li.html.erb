@@ -1,0 +1,16 @@
+<% fields_for li.class.name.underscore, li, :index => li.id do |attachment| %>
+	<b>Image Caption</b><br/>
+	<%= attachment.text_field :name %>
+	<% if li.filename %>
+		<div class="column span-24 first last">
+			Current:
+		</div>
+		<div class="column span-24 first last">
+			<%= image_tag(li.public_filename(:thumb)) %>
+		</div>
+	<% end %>
+	<div class="column span-24 first last">
+		Upload <%= 'Replacement' if li.filename %> File<br/>
+		<%= attachment.file_field :uploaded_data %>
+	</div>
+<% end %>

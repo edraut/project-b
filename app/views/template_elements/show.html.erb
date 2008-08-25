@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @template_element.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @template_element.type %>
+</p>
+
+<p>
+  <b>Template:</b>
+  <%=h @template_element.template %>
+</p>
+
+
+<%= link_to 'Edit', edit_template_element_path(@template_element) %> |
+<%= link_to 'Back', template_elements_path %>

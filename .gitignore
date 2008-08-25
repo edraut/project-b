@@ -1,0 +1,8 @@
+config/database.yml
+log/*
+db/migrate
+db/migrate/*
+test
+test/*
+tmp
+tmp/*

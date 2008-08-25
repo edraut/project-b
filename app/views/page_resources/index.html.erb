@@ -1,0 +1,24 @@
+<h1>Listing page_resources</h1>
+
+<table>
+  <tr>
+    <th>Resource type</th>
+    <th>Resource</th>
+    <th>Page</th>
+  </tr>
+
+<% for page_resource in @page_resources %>
+  <tr>
+    <td><%=h page_resource.resource_type %></td>
+    <td><%=h page_resource.resource_id %></td>
+    <td><%=h page_resource.page %></td>
+    <td><%= link_to 'Show', page_resource %></td>
+    <td><%= link_to 'Edit', edit_page_resource_path(page_resource) %></td>
+    <td><%= link_to 'Destroy', page_resource, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New page_resource', new_page_resource_path %>

@@ -1,0 +1,23 @@
+<h1>New page_resource</h1>
+
+<% form_for(@page_resource) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :resource_type %><br />
+    <%= f.text_field :resource_type %>
+  </p>
+  <p>
+    <%= f.label :resource_id %><br />
+    <%= f.text_field :resource_id %>
+  </p>
+  <p>
+    <%= f.label :page %><br />
+    <%= f.text_field :page %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', page_resources_path %>

@@ -1,0 +1,25 @@
+<% page = form %>
+<% form_for([:admin,page], :html => {:multipart => true}) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :content_template_id %><br />
+    <%= f.select :content_template_id, [['Choose a Template',0]] + ContentTemplate.find(:all).collect{|content_template| [content_template.name,content_template.id]}, {}, :onchange => "$.ajax(
+		{ 
+			type: 'PUT', 
+			url: '/admin/pages/#{page.id}', 
+			data: { content_template_id: $('#page_content_template_id').val()}, 
+			success: function(data){ $('#page_elements').html(data)}
+		})" %>
+  </p>
+	<div id="page_elements">
+		<%= render :partial => 'instantiate_elements', :object => page %>
+	</div>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>

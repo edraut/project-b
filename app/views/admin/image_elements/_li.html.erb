@@ -1,0 +1,25 @@
+<%# this_image_element = li.nil? ImageElement.new(:attachable_type => 'Page', :attachable_type => page.id, :name => template_element.name) : li
+	index = (li.nil? or li.id.nil?) ? nil : li.id %>
+<% fields_for 'image_element[]', li, :index => li.id do |image_element| %>
+	<p>
+	<%= image_element.hidden_field :name %>
+	<b><%= li.name %></b><br/>
+	<% if li.filename %>
+		<div class="column span-24 first last">
+			Current Image
+		</div>
+		<div class="column span-24 first last">
+			<%= image_tag(li.public_filename(:thumb)) %>
+		</div>
+		<div class="column span-24 first last">
+			&nbsp;
+		</div>
+	<% end %>
+	<div class="column span-24 first last">
+		Upload Image <%= 'to Replace Above' if li.filename %><br/>
+		<%= image_element.file_field :uploaded_data %>
+	</div><br/>&nbsp;<br/>
+</p>	
+<%= image_element.hidden_field :attachable_type %>
+<%= image_element.hidden_field :attachable_id %>
+<% end %>

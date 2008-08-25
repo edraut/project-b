@@ -1,0 +1,24 @@
+<h1>Listing blog_entries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Article image</th>
+  </tr>
+
+<% for blog_entry in @blog_entries %>
+  <tr>
+    <td><%=h blog_entry.name %></td>
+    <td><%=h blog_entry.description %></td>
+    <td><%=h blog_entry.article_image %></td>
+    <td><%= link_to 'Show', blog_entry %></td>
+    <td><%= link_to 'Edit', edit_blog_entry_path(blog_entry) %></td>
+    <td><%= link_to 'Destroy', blog_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New blog_entry', new_blog_entry_path %>

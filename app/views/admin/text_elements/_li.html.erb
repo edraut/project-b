@@ -1,0 +1,7 @@
+	<% fields_for 'text_element[]', li, :index => li.id do |text_element| %>
+	<p>
+		<b><%= li.name %></b><br/>
+		<%= text_element.hidden_field :name %>
+		<%= text_element.text_area :content %>
+	</p>
+	<% end %>
