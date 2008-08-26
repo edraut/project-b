@@ -1,28 +1,5 @@
-<h1>Listing projects</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Client</th>
-    <th>Description</th>
-    <th>Article image</th>
-    <th>Site link</th>
-  </tr>
-
 <% for project in @projects %>
-  <tr>
-    <td><%=h project.name %></td>
-    <td><%=h project.client %></td>
-    <td><%=h project.description %></td>
-    <td><%=h project.article_image %></td>
-    <td><%=h project.site_link %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div class="span-14 first"><%= project.name %></div>
+<div class="span-10 last"><%=h project.client %></div>
+<div class="span-24 first last"> <%= image_tag project.article_image.public_filename, :class => 'float-right' %> <%=h project.description %></div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New project', new_project_path %>

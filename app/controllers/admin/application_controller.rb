@@ -2,7 +2,10 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class Admin::ApplicationController < ActionController::Base
+  include AuthenticatedSystem
+  before_filter :login_required
   helper :all # include all helpers, all the time
+  
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store

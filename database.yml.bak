@@ -1,7 +1,0 @@
-development:
-    adapter: postgresql
-    database: go_redbird_go
-    username: go_redbird_go
-    password: go_redbird_go
-    host: localhost
-    port: 5432

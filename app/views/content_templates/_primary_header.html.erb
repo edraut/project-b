@@ -1,13 +1,9 @@
 <%= image_tag primary_header.image_elements.named('Banner Image').public_filename %>
-<% javascript_tag do %>
-	$(document).ready(function(){
-    $("#nav_tabs > ul").tabs({selected: 0});
-  });
-<% end %>
-<div id="nav_tabs">
-    <ul>
-			<li class="ui-tabs-nav-item"><div class="ui-tabs-nav-topspacer">&nbsp;</div><%= link_to '<span>Home</span>', home_path(:partial => true) %></li>
-			<li class="ui-tabs-nav-item"><div class="ui-tabs-nav-topspacer">&nbsp;</div><%= link_to '<span>About</span>', about_path(:partial => true) %></li>
-			<li class="ui-tabs-nav-item"><div class="ui-tabs-nav-topspacer">&nbsp;</div><%= link_to '<span>Projects</span>', projects_path(:partial => true) %></li>
-    </ul>
+<div class="span-24 first last">&nbsp;</div>
+<% nav_hash = setup_navigation %>
+<div class="span-24 first last">
+	<div class="span-4 first"><%= link_to 'Home', home_path, :class => nav_hash['Home'] %></div>
+	<div class="span-4 "><%= link_to 'About', about_path, :class => nav_hash['About'] %></div>
+	<div class="span-4 "><%= link_to 'Projects', projects_path, :class => nav_hash['Projects'] %></div>
 </div>
+<div class="span-24 first last">&nbsp;</div>

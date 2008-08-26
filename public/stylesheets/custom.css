@@ -1,14 +1,20 @@
+body {
+	color: #666666;
+}
 .text_right {
 	text-align: right;
 }
-a.active_nav {
-	color: #444;
+a.active-nav {
+	color: orange;
 }
-a, a.inactive_nav {
-	color: darkred;
+a, a.inactive-nav {
+	color: black;
 }
 
-div.navigation {
-	margin: 5px;
+.active-nav, .inactive-nav {
+	font-size: 18px;
+	text-decoration: none;
 }
-.ui-tabs-hide { display: none; }
+.float-right {
+	float: right;
+}

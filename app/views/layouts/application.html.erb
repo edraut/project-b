@@ -16,8 +16,9 @@
   <%= stylesheet_link_tag 'custom.css' %>
 </head>
 <body>
-<p style="notice"><%= flash[:notice] %></p>
-<%= yield  %>
-
+	<div class="container">
+		<p style="notice"><%= flash[:notice] %></p>
+		<%= yield  %>
+   </div>
 </body>
 </html>
