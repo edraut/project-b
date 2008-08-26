@@ -24,3 +24,6 @@ a, a.inactive-nav {
 .float-right {
 	float: right;
 }
+.project-image-buffer {
+	margin: 10px 0 15px 15px;
+}
