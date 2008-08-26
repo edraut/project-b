@@ -66,4 +66,16 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
-# load 'my_erb_extensions.rb'
+
+class ERB
+  module Util
+    def redcloth_escape( s )
+      RedCloth.new( s.to_s ).to_html if s and s.respond_to? :to_s and s.to_s
+    end
+
+    alias r redcloth_escape
+    module_function :r # this voodoo makes the method available to instances of ERB as a private method
+    module_function :redcloth_escape # ditto for the redcloth method
+  end
+end
+
