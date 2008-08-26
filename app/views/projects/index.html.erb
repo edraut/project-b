@@ -1,8 +1,10 @@
 <% for project in @projects %>
 <div class="span-16 first big bold"><%= project.name %></div>
 <div class="span-8 last">created for <%=h project.client %></div>
-<div class="span-24 first last"> <%= image_tag project.article_image.public_filename(:large_thumb), :class => 'float-right project-image-buffer' %> <%=h project.description %></div>
-<div class="span-8 prepend-16 first last"><%= link_to 'Visit the web site', project.site_link %></div>
-<div class="span-24 first last"><hr/></div>
+<div class="span-24 first last"> <%= image_tag project.article_image.public_filename(:large_thumb), :class => 'float-right project-image-buffer' %> <%=r project.description %> <br/>
+	<%= link_to 'Visit the web site', project.site_link %>
+	</div>
+<div class="span-8 prepend-16 first last"></div>
+<div class="span-24 first last">&nbsp;</div>
 <div class="span-24 first last">&nbsp;</div>
 <% end %>
