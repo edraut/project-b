@@ -1,5 +1,7 @@
 <% header = PagePartial.named('Main Header') %>
 <% footer = PagePartial.named('Main Footer') %>
 <%= render :partial => header.content_template.path, :object => header %>
+&nbsp;<br/>
+&nbsp;<br/>
 <%= render :partial => 'content_templates/basic_body', :object => @page %>
 <%= render :partial => footer.content_template.path, :object => footer %>

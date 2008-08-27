@@ -18,14 +18,13 @@ a, a.inactive-nav {
 }
 
 .active-nav, .inactive-nav {
-	font-size: 18px;
+	font-size: 20px;
 	text-decoration: none;
 }
 .float-right {
 	float: right;
 }
 .project-image-buffer {
-	margin: 10px 0 15px 15px;
+	margin: .5em 0 15px 15px;
 }
-
 img, div { behavior: url(iepngfix.htc) }

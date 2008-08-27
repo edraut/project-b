@@ -20,6 +20,8 @@
 		<% footer = PagePartial.named('Main Footer') %>
 		<%= render :partial => header.content_template.path, :object => header %>
 		<p style="notice"><%= flash[:notice] %></p>
+&nbsp;<br/>
+&nbsp;<br/>
 		<%= yield  %>
 		<%= render :partial => footer.content_template.path, :object => footer %>
 		<%=  %>
