@@ -1,2 +1,10 @@
 <% page = basic_body %>
-<%=r page.text_elements.named('Body Text').content %>
+<div class="span-16 first"><%=r page.text_elements.named('Body Text').content %></div>
+<div class="span-8 last">
+&nbsp;<br/>
+&nbsp;<br/>
+&nbsp;<br/>
+&nbsp;<br/>
+&nbsp;<br/>
+	<%= image_tag( page.image_elements.named('Small Content Image').public_filename(:medium_thumb), :class => 'float-right' ) unless page.image_elements.empty? or !page.image_elements.named('Small Content Image').filename%>
+</div>
