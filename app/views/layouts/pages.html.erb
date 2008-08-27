@@ -16,13 +16,8 @@
 </head>
 <body>
 	<div class="container">
-		<% header = PagePartial.named('Main Header') %>
-		<% footer = PagePartial.named('Main Footer') %>
-		<%= render :partial => header.content_template.path, :object => header %>
 		<p style="notice"><%= flash[:notice] %></p>
 		<%= yield  %>
-		<%= render :partial => footer.content_template.path, :object => footer %>
-		<%=  %>
    </div>
 </body>
 </html>
