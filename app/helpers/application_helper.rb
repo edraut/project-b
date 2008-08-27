@@ -2,7 +2,7 @@
 module ApplicationHelper
 
   def setup_navigation
-    tabs = ['Home','About','Projects']
+    tabs = ['Home','About','Projects','Contact']
     nav_hash = {}
     tabs.each do |tab|
       nav_hash[tab] = 'inactive-nav'
