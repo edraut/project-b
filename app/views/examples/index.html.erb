@@ -58,7 +58,9 @@
 <div class="span-6 first last" id="L-div" style="display: none;">
 	<%= select_tag 'category_two', options_for_select(['Studios'].collect{|c| [c,c]},@category_two) %>
 </div>
-
+<div class="span-6 first last" id="A-div" style="display: none;">
+	&nbsp;
+</div>
 <% javascript_tag do %>
 	function resetOptions(el) {
 			$('#category-two-div').html($('#' + el.val() + '-div').html());
