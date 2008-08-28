@@ -1,0 +1,70 @@
+<% form_tag '/examples', :method => :get do -%>
+<div class="span-24 first last">
+	<div class="span-6 first">
+		<div class="span-6 first last">
+			In this location
+		</div>
+		<div class="span-6 first last">
+			<%= select_tag 'location', options_for_select(['New York','San Francisco','Atlanta'].collect{|c| [c,c]},@location) %>
+		</div>
+	</div>
+	<div class="span-6">
+		<div class="span-6 first last">
+			Search for
+		</div>
+		<div class="span-6 first last">
+			<%= select_tag 'category', options_for_select(['All Categories','Locations','Equipment','Production', 'Vehicles','Delivery Services','Repair','Useful Local Info'].collect{|c| [c,c[0].chr]},@category), :onchange => "resetOptions($(this))" %>
+		</div>
+		<div class="span-6 first last" id="category-two-div" style="display: none;">
+		</div>
+	</div>
+	<div class="span-6">
+		<div class="span-6 first last">
+			In this price range
+		</div>
+		<div class="span-6 first last">
+			<%= select_tag 'price_range', options_for_select(['All','On a budget','Average','Nothing but the best'].collect{|c| [c,c]}, @price_range) %>
+		</div>
+	</div>
+	<div class="span-6 last">
+		<div class="span-6 first last">
+			With these keywords
+		</div>
+		<div class="span-6 first last">
+			<%= text_field_tag 'search_term', @search_term %>
+		</div>
+	</div>
+</div>
+<div class="span-6 first"><%= submit_tag 'Search' %></div>
+<% end %>
+<div class="span-6 first last" id="P-div" style="display: none;">
+	<%= select_tag 'category_two', options_for_select(['Catering Service','Modeling Agencies','Production Companies','Prop Houses'].collect{|c| [c,c]},@category_two) %>
+</div>
+<div class="span-6 first last" id="R-div" style="display: none;">
+	<%= select_tag 'category_two', options_for_select(['Computer Repair','Data Recovery','Equipment Repair'].collect{|c| [c,c]},@category_two) %>
+</div>
+<div class="span-6 first last" id="D-div" style="display: none;">
+	<%= select_tag 'category_two', options_for_select(['Messenger/Courier'].collect{|c| [c,c]},@category_two) %>
+</div>
+<div class="span-6 first last" id="U-div" style="display: none;">
+	<%= select_tag 'category_two', options_for_select(['Photography Permits'].collect{|c| [c,c]},@category_two) %>
+</div>
+<div class="span-6 first last" id="V-div" style="display: none;">
+	<%= select_tag 'category_two', options_for_select(['Car Services'].collect{|c| [c,c]},@category_two) %>
+</div>
+<div class="span-6 first last" id="E-div" style="display: none;">
+	<%= select_tag 'category_two', options_for_select(['Digital Capture Services'].collect{|c| [c,c]},@category_two) %>
+</div>
+<div class="span-6 first last" id="L-div" style="display: none;">
+	<%= select_tag 'category_two', options_for_select(['Studios'].collect{|c| [c,c]},@category_two) %>
+</div>
+
+<% javascript_tag do %>
+	function resetOptions(el) {
+			$('#category-two-div').html($('#' + el.val() + '-div').html());
+			$('#category-two-div').show();
+	}
+	$(function(){
+		resetOptions($('#category'));
+	})
+<% end %>

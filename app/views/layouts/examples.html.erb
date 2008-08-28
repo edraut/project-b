@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= params[:controller].capitalize %></title>
+	<%= stylesheet_link_tag 'blueprint/screen.css' %>
+  <%= stylesheet_link_tag 'custom.css' %>
+  <%= stylesheet_link_tag 'jquery-ui-themeroller.css' %>
+	<%= javascript_include_tag 'jquery-1.2.6' %>
+	<%= javascript_include_tag 'effects.core' %>
+	<%= javascript_include_tag 'ui.core' %>
+	<%= javascript_include_tag 'ui.tabs' %>
+  
+</head>
+<body>
+	<div class="container">
+		<p style="notice"><%= flash[:notice] %></p>
+		&nbsp;<br/>
+		&nbsp;<br/>
+		<%= yield  %>
+  </div>
+</body>
+</html>
